@@ -1,0 +1,32 @@
+/* docs/css/custom.css */
+.wy-nav-content {
+  max-width: 100% !important;
+}
+/* docs/css/custom.css */
+.wy-nav-content {
+  max-width: 95% !important;
+  margin: auto;
+}
+
+@media screen and (min-width: 1000px) {
+  .wy-nav-content-wrap {
+    margin-right: 300px; /* space for TOC */
+  }
+
+  .wy-nav-side {
+    width: 230px;
+  }
+
+  .wy-side-scroll {
+    width: 230px;
+  }
+
+  .wy-body-for-nav {
+    max-width: none;
+  }
+}
+
+/* Hide the right TOC panel in ReadTheDocs theme */
+.wy-nav-content .toc {
+  display: none !important;
+}

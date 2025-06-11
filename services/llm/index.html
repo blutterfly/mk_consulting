@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://blutterfly.github.io/mk_consulting/services/llm/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Large Language Model - Mk Consulting</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Large Language Model";
+        var mkdocs_page_input_path = "services/llm.md";
+        var mkdocs_page_url = "/mk_consulting/services/llm/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mk Consulting
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../about.md">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Apps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../apps/fleet_tracking/">Fleet Tracking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Services</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../freelance/">Freelance</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Large Language Model</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_note/">Clinical Note Summarization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ollama/">Setup Deploy OLLAMA</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Goochlot</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../goochlot/page1.md">Page 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../goochlot/page2.md">Page 2</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/setup/">Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/advanced.md">Advanced Tips</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mk Consulting</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Services</li>
+      <li class="breadcrumb-item active">Large Language Model</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Below is a “menu” of LLM-powered services you can pitch to a healthcare client that holds \~4 million electronic medical records (EMRs). I’ve grouped them by outcome and spelled out the data, privacy, and deployment considerations you’ll need to cover in every statement of work (SOW).</p>
+<hr />
+<h2 id="1-clinical-documentation-summarization">1. Clinical Documentation &amp; Summarization<a class="headerlink" href="#1-clinical-documentation-summarization" title="Permanent link">&para;</a></h2>
+<p><strong>What you deliver</strong></p>
+<table>
+<thead>
+<tr>
+<th>Capability</th>
+<th>Typical Outputs</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Real-time note summarizer</td>
+<td>SOAP or APSO progress-note drafts, referral letters</td>
+<td>Cuts charting time \~50 % and physician after-hours work</td>
+</tr>
+<tr>
+<td>Discharge-summary generator</td>
+<td>Problem-list reconciliation, medication changes, follow-up plan</td>
+<td>Faster bed turnover, fewer hand-off errors</td>
+</tr>
+<tr>
+<td>Patient-friendly visit recap</td>
+<td>5th-grade-level summary + action items</td>
+<td>Boosts comprehension &amp; CAHPS scores</td>
+</tr>
+</tbody>
+</table>
+<p><strong>How</strong> – Fine-tune a domain model such as MedLM or GPT-Med-5 on de-identified historic notes; add a Retrieval-Augmented Generation (RAG) layer so the LLM cites the patient’s chart snippets inline. These workflows are already live at Epic (via Nuance) and Google Cloud pilots. (<a href="https://www.grgonline.com/post/summarizing-ehrs-and-generating-discharge-narratives-using-medlm-models?utm_source=chatgpt.com" title="AI in EHR Summarization &amp; Discharge Notes with MedLM">grgonline.com</a>, <a href="https://techvify.com/generative-ai-in-healthcare/?utm_source=chatgpt.com" title="5 Best Generative AI In Healthcare Use Cases For 2025 - Techvify">techvify.com</a>, <a href="https://www.frontiersin.org/journals/digital-health/articles/10.3389/fdgth.2024.1475092/full?utm_source=chatgpt.com" title="Prospects for AI clinical summarization to reduce the burden of ...">frontiersin.org</a>)</p>
+<hr />
+<h2 id="2-copilot-qa-for-clinicians">2. “Copilot” Q\&amp;A for Clinicians<a class="headerlink" href="#2-copilot-qa-for-clinicians" title="Permanent link">&para;</a></h2>
+<p><em>“Show me this patient’s last EF and all abnormal labs in the past 6 months.”</em></p>
+<p>Build a secure chat interface where the LLM translates natural-language questions into FHIR or SQL queries, pulls structured &amp; unstructured data, and returns a concise answer plus citations to the source note. HIPAA compliance is handled via on-prem deployment or VPC-hosted models with audit logging. (<a href="https://www.grgonline.com/post/summarizing-ehrs-and-generating-discharge-narratives-using-medlm-models?utm_source=chatgpt.com" title="AI in EHR Summarization &amp; Discharge Notes with MedLM">grgonline.com</a>)</p>
+<hr />
+<h2 id="3-coding-revenue-cycle-automation">3. Coding &amp; Revenue-Cycle Automation<a class="headerlink" href="#3-coding-revenue-cycle-automation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Auto-suggest ICD-10-CM / CPT codes from the encounter note.</li>
+<li>Draft prior-authorization letters that quote the payer’s policy language.</li>
+<li>Summarize “high-utilizer” charts for denial-appeal teams.</li>
+</ul>
+<p>LLMs consistently match human coders on precision/recall in published pilots and can shave 1–2 days off claim submission. (<a href="https://travismay.medium.com/150-ai-use-cases-in-healthcare-3ff866cf50e6?utm_source=chatgpt.com" title="150 AI Use Cases in Healthcare - Travis May - Medium">travismay.medium.com</a>)</p>
+<hr />
+<h2 id="4-clinical-decision-support-guideline-guardrails">4. Clinical Decision Support &amp; Guideline Guardrails<a class="headerlink" href="#4-clinical-decision-support-guideline-guardrails" title="Permanent link">&para;</a></h2>
+<p>Deploy an agent that cross-checks active orders and meds against clinical guidelines, black-box warnings, and internal best-practice alerts. Because the knowledge base is outside the model, updates propagate instantly without a full re-train. (<a href="https://travismay.medium.com/150-ai-use-cases-in-healthcare-3ff866cf50e6?utm_source=chatgpt.com" title="150 AI Use Cases in Healthcare - Travis May - Medium">travismay.medium.com</a>)</p>
+<hr />
+<h2 id="5-population-health-ask-me-anything-layer">5. Population-Health “Ask Me Anything” Layer<a class="headerlink" href="#5-population-health-ask-me-anything-layer" title="Permanent link">&para;</a></h2>
+<p>Let care-management or research teams type plain-English prompts like:</p>
+<blockquote>
+<p>“List diabetic patients age 40-65 with HbA1c &gt; 9 % who haven’t had a retinal exam in 18 months.”</p>
+</blockquote>
+<p>The system uses your 4 M-record corpus as a private knowledge graph, returning CSV cohorts or charts for outreach and trial recruitment.</p>
+<hr />
+<h2 id="6-patient-engagement-copilots">6. Patient-Engagement Copilots<a class="headerlink" href="#6-patient-engagement-copilots" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Message triage</strong>: Auto-draft empathetic portal replies for routine questions.</li>
+<li><strong>Education bots</strong>: Generate medication or procedure FAQs at literacy level of choice.
+  These low-risk, admin-heavy tasks are where many radiology and ambulatory groups have already realized ROI. (<a href="https://www.businessinsider.com/radiology-embraces-generative-ai-to-streamline-productivity-2025-6?utm_source=chatgpt.com" title="AI isn't replacing radiologists. Instead, they're using it to tackle time-sucking administrative tasks.">businessinsider.com</a>)</li>
+</ul>
+<hr />
+<h2 id="7-synthetic-data-de-id-factory">7. Synthetic-Data &amp; De-ID Factory<a class="headerlink" href="#7-synthetic-data-de-id-factory" title="Permanent link">&para;</a></h2>
+<p>Before any fine-tuning, build a pipeline that:</p>
+<ol>
+<li><strong>Detects &amp; masks</strong> 18 HIPAA identifiers plus free-text PHI.</li>
+<li><strong>Generates synthetic records</strong> that preserve statistical fidelity for internal analytics or external collaborations.</li>
+</ol>
+<hr />
+<h2 id="8-safety-audit-compliance-services">8. Safety, Audit &amp; Compliance Services<a class="headerlink" href="#8-safety-audit-compliance-services" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Red-team the LLM for hallucinations, guideline deviations, or PHI leaks.</li>
+<li>Produce model cards, bias assessments, and FDA/ONC documentation.</li>
+<li>Set up continuous prompt-output monitoring with secure human-in-the-loop overrides.</li>
+</ul>
+<hr />
+<h3 id="engagement-pattern-pricing-anchors">Engagement Pattern &amp; Pricing Anchors<a class="headerlink" href="#engagement-pattern-pricing-anchors" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Duration</th>
+<th>Deliverables</th>
+<th>Typical Fee</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Discovery &amp; Data-Gov Audit</strong></td>
+<td>2 wks</td>
+<td>Data map, HIPAA/FDA gap analysis</td>
+<td>\$10–15 k fixed</td>
+</tr>
+<tr>
+<td><strong>Proof-of-Concept (one clinic)</strong></td>
+<td>4–6 wks</td>
+<td>Working demo + ROI report</td>
+<td>\$40–70 k</td>
+</tr>
+<tr>
+<td><strong>Pilot Roll-Out (3 use cases)</strong></td>
+<td>1 quarter</td>
+<td>Production-ready pipelines, MLOps, governance playbook</td>
+<td>\$150 k+</td>
+</tr>
+<tr>
+<td><strong>Managed Service / Fractional AI Lead</strong></td>
+<td>Ongoing</td>
+<td>Monitoring, retraining, new use-case backlog</td>
+<td>\$15–30 k / mo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="technical-stack-at-a-glance">Technical Stack at a Glance<a class="headerlink" href="#technical-stack-at-a-glance" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Model layer</strong>: MedLM, GPT-5-Med, or an open-source rival hosted in a VPC enclave.</li>
+<li><strong>Retrieval</strong>: Azure Health Data Services, Elasticsearch-FHIR, or Postgres-pgvector.</li>
+<li><strong>Guardrails</strong>: AWS Bedrock Guardrails or custom policy engine.</li>
+<li><strong>DevOps</strong>: Terraform, Kubernetes, MLflow/W\&amp;B for versioning; SOC 2 logging.</li>
+</ul>
+<hr />
+<h2 id="how-to-pitch">How to Pitch<a class="headerlink" href="#how-to-pitch" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Lead with clinician pain points</strong> (after-hours charting, denial rates, burnout).</li>
+<li><strong>Bundle quick wins</strong> (note summarization) with one “moonshot” (decision support).</li>
+<li>Offer a <strong>no-PHI, synthetic-data sandbox</strong> so legal clears the project quickly.</li>
+<li><strong>Show hard ROI</strong>—minutes saved per note, coder FTEs reallocated, reduced length of stay.</li>
+</ol>
+<p>With 4 million EMRs, your client has the critical mass to train, evaluate, and continuously improve bespoke medical-grade LLM workflows—placing them ahead of most health systems still stuck in pilot purgatory.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../freelance/" class="btn btn-neutral float-left" title="Freelance"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../clinical_note/" class="btn btn-neutral float-right" title="Clinical Note Summarization">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../freelance/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../clinical_note/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

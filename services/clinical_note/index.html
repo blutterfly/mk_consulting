@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://blutterfly.github.io/mk_consulting/services/clinical_note/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Clinical Note Summarization - Mk Consulting</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Clinical Note Summarization";
+        var mkdocs_page_input_path = "services/clinical_note.md";
+        var mkdocs_page_url = "/mk_consulting/services/clinical_note/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mk Consulting
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../about.md">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Apps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../apps/fleet_tracking/">Fleet Tracking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Services</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../freelance/">Freelance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../llm/">Large Language Model</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Clinical Note Summarization</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-scope-the-summary-you-need">1 · Scope the “summary” you need</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-data-preparation-governance">2 · Data preparation &amp; governance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-model-strategy">3 · Model strategy</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-prompt-design-baseline-template">4 · Prompt design (baseline template)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-guardrails-compliance">5 · Guardrails &amp; compliance</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-evaluation-loop">6 · Evaluation loop</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-serving-architecture-hipaa-ready">7 · Serving architecture (HIPAA ready)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8-roll-out-plan-timeline">8 · Roll-out plan &amp; timeline</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#key-take-aways">Key take-aways</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#1-zero-miss-discovery-ai-review">1. “Zero-Miss Discovery” AI Review</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-litigation-outcome-analytics">2. Litigation-Outcome Analytics</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-contract-risk-radar">3. Contract-Risk Radar</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-draft-assist-copilot-with-hallucination-guardrails">4. Draft-Assist Copilot (with Hallucination Guardrails)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-knowledge-graph-chat-for-associates">5. Knowledge-Graph Chat for Associates</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#6-pricing-budget-predictor">6. Pricing &amp; Budget Predictor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#7-billing-anomaly-monitor">7. Billing-Anomaly Monitor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#8-esg-regulatory-scanner">8. ESG &amp; Regulatory Scanner</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#9-responsible-ai-compliance-program">9. Responsible-AI Compliance Program</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ollama/">Setup Deploy OLLAMA</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Goochlot</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../goochlot/page1.md">Page 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../goochlot/page2.md">Page 2</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/setup/">Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/advanced.md">Advanced Tips</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mk Consulting</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Services</li>
+      <li class="breadcrumb-item active">Clinical Note Summarization</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="clinical-note-summarization">Clinical Note Summarization<a class="headerlink" href="#clinical-note-summarization" title="Permanent link">&para;</a></h1>
+<p>Below is a step-by-step playbook you can hand to an engineering team to stand up <strong>LLM-powered clinical-note summarization</strong> on a corpus of \~4 million EMRs.  I split it into phases so you can pilot quickly and then harden for production.</p>
+<hr />
+<h2 id="1-scope-the-summary-you-need">1 · Scope the “summary” you need<a class="headerlink" href="#1-scope-the-summary-you-need" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Target user</th>
+<th>Format</th>
+<th>Typical length</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Physician hand-off</strong></td>
+<td>SOAP / APSO bulleted outline</td>
+<td>120–200 words</td>
+<td>Subjective, Objective, Assessment, Plan</td>
+</tr>
+<tr>
+<td><strong>Discharge note</strong></td>
+<td>Narrative paragraphs + med changes table</td>
+<td>250–400 words</td>
+<td>Problem list, meds-on-admission vs. discharge</td>
+</tr>
+<tr>
+<td><strong>Patient recap</strong></td>
+<td>5-grade reading level, action items list</td>
+<td>80–120 words</td>
+<td>Follow-up dates, lifestyle advice</td>
+</tr>
+</tbody>
+</table>
+<p>Defining the end product first keeps annotation, prompts, and evaluation aligned.</p>
+<hr />
+<h2 id="2-data-preparation-governance">2 · Data preparation &amp; governance<a class="headerlink" href="#2-data-preparation-governance" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Pull the raw notes</strong> (progress, H\&amp;P, discharge, nursing, etc.) plus meds, labs, vitals.</li>
+<li><strong>De-identify</strong> or mask PHI using regex + clinical-NER; log residual PHI hits.</li>
+<li><strong>Section-slice</strong> each note (headers like “HPI”, “Assessment”).</li>
+<li><strong>Create a reference set</strong> of 3–5 k note→summary pairs—use a mix of manual clinician abstracts and high-quality existing documents (e.g., structured discharge summaries). This becomes your tuning &amp; eval set.</li>
+</ol>
+<p><em>(HIPAA requires either on-prem GPUs or a BAA with your cloud vendor. Vertex AI and Azure both support BAA-covered LLM hosting.)</em></p>
+<hr />
+<h2 id="3-model-strategy">3 · Model strategy<a class="headerlink" href="#3-model-strategy" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>When to choose</th>
+<th>Key steps</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prompt-only</strong> (few-shot)</td>
+<td>Need PoC in days</td>
+<td>Call a domain LLM (MedLM-medium / MedLM-large) with \~5 inline exemplars.  Add a system prompt that dictates style and word limit. (<a href="https://www.lighthouseglobal.com/ai-in-ediscovery-report-2025" title="2025 AI in eDiscovery Report: Key Insights &amp; Trends | Lighthouse">cloud.google.com</a>)</td>
+</tr>
+<tr>
+<td><strong>LoRA / SFT fine-tune</strong></td>
+<td>You have ≥2 k labeled note-summary pairs, need lower latency &amp; cost</td>
+<td>Use PEFT or HuggingFace Trainer on an open-source medical LLM (e.g., Clinical-Camel-2) with LoRA adapters.  8×A10G = \~4 h training for 10 epochs. (<a href="https://www.esquiresolutions.com/predictive-analytics-promises-a-data-driven-crystal-ball-for-litigators/" title="Predictive Analytics Promises a Data-Driven Crystal Ball for Litigators - Esquire Deposition Solutions">databricks.com</a>)</td>
+</tr>
+<tr>
+<td><strong>Retrieval-Augmented Generation</strong></td>
+<td>Summaries must cite facts &amp; cut hallucinations</td>
+<td>① Retrieve top-k relevant note chunks + recent labs; ② feed them plus a prompt into the LLM; ③ return summary <em>with inline citations</em>.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tip:</strong> Hierarchical pipelines work best—make 1-3 short “section” summaries, then a “head” prompt that fuses them into the final note. (<a href="https://legal.thomsonreuters.com/blog/genai-report-executive-summary-for-legal-professionals/" title="2025 GenAI report: Executive summary for legal professionals">jmir.org</a>)</p>
+</blockquote>
+<hr />
+<h2 id="4-prompt-design-baseline-template">4 · Prompt design (baseline template)<a class="headerlink" href="#4-prompt-design-baseline-template" title="Permanent link">&para;</a></h2>
+<pre><code>SYSTEM:
+You are ClinNote-GPT, an expert medical scribe. 
+Output JSON with keys: &quot;Subjective&quot;, &quot;Objective&quot;, &quot;Assessment&quot;, &quot;Plan&quot;.
+Readability ≤ 8th-grade. Cite each fact with ‹#› markers.
+USER_CONTEXT:
+{retrieved_chunks}
+USER_TASK:
+Draft today’s progress-note summary.
+</code></pre>
+<p>Keep it under 1 000 tokens (≈ 750 words) to fit model limits.</p>
+<hr />
+<h2 id="5-guardrails-compliance">5 · Guardrails &amp; compliance<a class="headerlink" href="#5-guardrails-compliance" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>PHI leak check</strong>: After inference run a regex/NER sweep; block if residual identifiers found.</li>
+<li><strong>Factuality filter</strong>: Use an extraction model to verify meds, vitals, allergies in the summary exactly match source note values.</li>
+<li><strong>Audit log</strong>: Persist prompt, retrieved text, model version, and summary for 6 years (HIPAA).</li>
+</ul>
+<p>Microsoft Nuance’s DAX Express and Epic already embed similar controls, which helps when security teams ask “Who else does this?” (<a href="https://www.theguardian.com/technology/2025/jun/06/high-court-tells-uk-lawyers-to-urgently-stop-misuse-of-ai-in-legal-work" title="High court tells UK lawyers to stop misuse of AI after fake case-law citations | Artificial intelligence (AI) | The Guardian">epic.com</a>, <a href="https://aceds.org/2025-legal-ai-report-key-insights-from-aceds-secretariat-aceds-blog/" title="2025 Legal AI Report: Key Insights from ACEDS + Secretariat">spsoft.com</a>)</p>
+<hr />
+<h2 id="6-evaluation-loop">6 · Evaluation loop<a class="headerlink" href="#6-evaluation-loop" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>How to compute</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ROUGE-L / BERTScore</strong></td>
+<td>≥ baseline human abstract</td>
+<td>nightly batch on dev set</td>
+</tr>
+<tr>
+<td><strong>Clinical Corr. (CEQ)</strong></td>
+<td>≥ 4 / 5 avg</td>
+<td>3-clinician Likert rating</td>
+</tr>
+<tr>
+<td><strong>Edit distance in prod</strong></td>
+<td>≤ 15 % chars changed by physicians</td>
+<td>capture in EHR UI</td>
+</tr>
+</tbody>
+</table>
+<p>Recent studies show LLM summaries improve downstream tasks like ICU bounce-back prediction, so track <em>task</em> metrics too. (<a href="https://www.medrxiv.org/content/10.1101/2025.01.19.25320797v1?utm_source=chatgpt.com" title="Summarizing Clinical Notes using LLMs for ICU Bounceback and ...">medrxiv.org</a>, <a href="https://www.medrxiv.org/content/10.1101/2025.01.19.25320797v1.full-text?utm_source=chatgpt.com" title="Summarizing Clinical Notes using LLMs for ICU Bounceback and ...">medrxiv.org</a>)</p>
+<hr />
+<h2 id="7-serving-architecture-hipaa-ready">7 · Serving architecture (HIPAA ready)<a class="headerlink" href="#7-serving-architecture-hipaa-ready" title="Permanent link">&para;</a></h2>
+<pre><code>              ┌─────────┐
+   FHIR GET──▶│Retrieval│──┐
+              └─────────┘  │ctx
+                           ▼
+   clinician UI──prompt──▶LLM (GPU)──▶ Guardrails ──▶ EHR POST
+</code></pre>
+<ul>
+<li><strong>Retrieval store</strong>: pgvector, Elastic-FHIR, or Azure Health Data Services.</li>
+<li><strong>LLM host</strong>: Vertex AI Generative AI “medlm-v2” or on-prem vLLM cluster behind Envoy.</li>
+<li><strong>Guardrails service</strong>: OpenAI or AWS Bedrock Guardrails, plus custom rules.</li>
+</ul>
+<p>Zero-trust network, mutual TLS, and BAA in place.</p>
+<hr />
+<h2 id="8-roll-out-plan-timeline">8 · Roll-out plan &amp; timeline<a class="headerlink" href="#8-roll-out-plan-timeline" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1-2</td>
+<td>PoC: prompt-only MedLM, 50 notes, offline eval</td>
+</tr>
+<tr>
+<td>3-6</td>
+<td>Fine-tune + RAG + guardrails, internal clinician test</td>
+</tr>
+<tr>
+<td>7-10</td>
+<td>Embed widget in test EHR tenant, shadow mode (summary not saved)</td>
+</tr>
+<tr>
+<td>11-12</td>
+<td>A/B pilot on two clinics, capture edit distance &amp; time-saved</td>
+</tr>
+<tr>
+<td>13+</td>
+<td>Gradual org-wide enablement, add patient-recap variant</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="key-take-aways">Key take-aways<a class="headerlink" href="#key-take-aways" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Start with prompt-only MedLM</strong> to prove value fast; move to LoRA fine-tune for cost and latency.</li>
+<li><strong>RAG + hierarchical summarization</strong> keeps hallucination risk low and helps with citation.</li>
+<li><strong>Guardrails and audit logging</strong> are non-negotiable for HIPAA &amp; upcoming FDA CDS rules.</li>
+<li>Use <strong>clinician edit distance</strong> as your north-star metric—it captures both accuracy and usability.</li>
+</ul>
+<p>Follow the phased plan above and you can have reliable, compliant note summarization in production in \~3 months, leveraging your 4 M-record data moat for continuous quality gains.</p>
+<p>Below are <strong>nine ready-to-deliver “elevator pitches”</strong> you can drop into a slide deck or intro call with a law-firm partner.  Each pitch is tailored to pain-points legal leaders say they face right now, backed by fresh adoption data and recent headlines.</p>
+<hr />
+<h3 id="1-zero-miss-discovery-ai-review">1. “Zero-Miss Discovery” AI Review<a class="headerlink" href="#1-zero-miss-discovery-ai-review" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>Cut document review hours by 40 % while slashing privilege-leak risk to near-zero.</em>
+Deploy an LLM-guided e-discovery pipeline that auto-ranks responsiveness, flags privilege with &gt;95 % recall, and writes defensible audit reports.  2025 surveys show firms that adopted GenAI for review report the <strong>fastest ROI of any legal-tech spend</strong>(<a href="https://www.lighthouseglobal.com/ai-in-ediscovery-report-2025" title="2025 AI in eDiscovery Report: Key Insights &amp; Trends | Lighthouse">lighthouseglobal.com</a>).</p>
+</blockquote>
+<h3 id="2-litigation-outcome-analytics">2. Litigation-Outcome Analytics<a class="headerlink" href="#2-litigation-outcome-analytics" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>Know the judge before you file.</em>
+We mine PACER histories, judge rulings and settlement data to predict win-rates, likely timelines and award ranges—insight that <strong>68 % of lawyers already use to win pitches</strong>(<a href="https://www.esquiresolutions.com/predictive-analytics-promises-a-data-driven-crystal-ball-for-litigators/" title="Predictive Analytics Promises a Data-Driven Crystal Ball for Litigators - Esquire Deposition Solutions">esquiresolutions.com</a>).  Your litigators walk into strategy meetings armed with numbers, not hunches.</p>
+</blockquote>
+<h3 id="3-contract-risk-radar">3. Contract-Risk Radar<a class="headerlink" href="#3-contract-risk-radar" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>Turn 200-page agreements into two-minute risk briefs.</em>
+Fine-tuned LLMs extract clauses, score indemnities and generate board-ready summaries.  Contract review is <strong>the #1 GenAI use-case in law firms for 2025</strong>(<a href="https://legal.thomsonreuters.com/blog/genai-report-executive-summary-for-legal-professionals/" title="2025 GenAI report: Executive summary for legal professionals">legal.thomsonreuters.com</a>).</p>
+</blockquote>
+<h3 id="4-draft-assist-copilot-with-hallucination-guardrails">4. Draft-Assist Copilot (with Hallucination Guardrails)<a class="headerlink" href="#4-draft-assist-copilot-with-hallucination-guardrails" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>First drafts of memos, briefs and letters in seconds—always with pinned citations.</em>
+Our “red-pen bot” cross-checks every claimed precedent; hallucinations that got UK lawyers sanctioned this year never reach your docket(<a href="https://www.theguardian.com/technology/2025/jun/06/high-court-tells-uk-lawyers-to-urgently-stop-misuse-of-ai-in-legal-work" title="High court tells UK lawyers to stop misuse of AI after fake case-law citations | Artificial intelligence (AI) | The Guardian">theguardian.com</a>).</p>
+</blockquote>
+<h3 id="5-knowledge-graph-chat-for-associates">5. Knowledge-Graph Chat for Associates<a class="headerlink" href="#5-knowledge-graph-chat-for-associates" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>Ask, “Show me every motion to compel we won on trade-secret misappropriation in the last five years” and get an answer in plain English with links.</em>
+LLM translates queries into graph searches across brief banks, KM systems and DMS, cutting research time by up to 60 %.</p>
+</blockquote>
+<h3 id="6-pricing-budget-predictor">6. Pricing &amp; Budget Predictor<a class="headerlink" href="#6-pricing-budget-predictor" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>Quote fixed fees with confidence.</em>
+Using historical time-entry and matter data, we forecast hours, staffing mix and realization rates—turning pricing from gut feel into data science.</p>
+</blockquote>
+<h3 id="7-billing-anomaly-monitor">7. Billing-Anomaly Monitor<a class="headerlink" href="#7-billing-anomaly-monitor" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>Catch leakage before the client does.</em>
+ML models flag duplicate time, block-billed tasks and outlier rates in real time, improving collection rates and client trust.</p>
+</blockquote>
+<h3 id="8-esg-regulatory-scanner">8. ESG &amp; Regulatory Scanner<a class="headerlink" href="#8-esg-regulatory-scanner" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>Proactively spot climate-risk and human-rights clauses across the contract corpus.</em>
+Helps the firm advise clients on looming disclosure rules while showcasing thought-leadership.</p>
+</blockquote>
+<h3 id="9-responsible-ai-compliance-program">9. Responsible-AI Compliance Program<a class="headerlink" href="#9-responsible-ai-compliance-program" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><em>Stay ahead of bar-association rules and client outside-counsel guidelines.</em>
+We build policy, training and automated audit trails so partners can use GenAI without fear—addressing top adoption barriers of <strong>privacy (56 %) and hallucinations (31 %)</strong> in the latest ACEDS report(<a href="https://aceds.org/2025-legal-ai-report-key-insights-from-aceds-secretariat-aceds-blog/" title="2025 Legal AI Report: Key Insights from ACEDS + Secretariat">aceds.org</a>).</p>
+</blockquote>
+<hr />
+<h4 id="how-to-position-these-offers">How to position these offers<a class="headerlink" href="#how-to-position-these-offers" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Lead with revenue &amp; risk.</strong>  “We cut review time 40 % and de-risk sanctions” resonates more than “We use BERT embeddings.”</li>
+<li><strong>Bundle a quick win + a compliance layer.</strong>  e.g., “Draft-Assist Copilot <strong>plus</strong> Responsible-AI policy pack.”</li>
+<li><strong>Quote hard stats</strong> (above citations) to build urgency and credibility.</li>
+</ul>
+<p>Use these short pitches as talking points, then dive deeper when partners ask, “Show me how.”</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../llm/" class="btn btn-neutral float-left" title="Large Language Model"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ollama/" class="btn btn-neutral float-right" title="Setup Deploy OLLAMA">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../llm/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ollama/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

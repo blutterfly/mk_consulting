@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://blutterfly.github.io/mk_consulting/apps/fleet_tracking/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Fleet Tracking - Mk Consulting</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Fleet Tracking";
+        var mkdocs_page_input_path = "apps/fleet_tracking.md";
+        var mkdocs_page_url = "/mk_consulting/apps/fleet_tracking/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mk Consulting
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../about.md">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Apps</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Fleet Tracking</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview-of-the-solution">✅ Overview of the Solution</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#truck-location-data-source">Truck Location Data Source</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#tech-stack">Tech Stack</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#features-of-the-dashboard">🚛 Features of the Dashboard</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#minimal-working-example-prototype-with-fake-data">🧱 Minimal Working Example (Prototype with Fake Data)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next-steps-for-production-version">🔧 Next Steps for Production Version</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#optional-enhancements">📦 Optional Enhancements</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gps-tracking-devices">GPS Tracking Devices</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#recommended-gps-trackers-for-fleet-trucks">✅ Recommended GPS Trackers for Fleet Trucks</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#1-bouncie-gps-tracker">1. Bouncie GPS Tracker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#2-vyncs-gps-tracker">2. Vyncs GPS Tracker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#3-tracki-gps-tracker">3. Tracki GPS Tracker</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#4-samsara-vehicle-gateway-vg34">4. Samsara Vehicle Gateway (VG34)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#5-calamp-lmu-3030-lmu-2630">5. CalAmp LMU-3030 / LMU-2630</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#installation-options">Installation Options</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integration-tip-api-access">🔐 Integration Tip: API Access</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#build-your-own-tracker-or-outsource-this-build">🛠️ Build your own tracker or outsource this build.</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Services</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../services/freelance/">Freelance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../services/llm/">Large Language Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../services/clinical_note/">Clinical Note Summarization</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../services/ollama/">Setup Deploy OLLAMA</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Goochlot</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../goochlot/page1.md">Page 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../goochlot/page2.md">Page 2</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/setup/">Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/advanced.md">Advanced Tips</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mk Consulting</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Apps</li>
+      <li class="breadcrumb-item active">Fleet Tracking</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="fleet-tracking-dashboard">Fleet Tracking Dashboard<a class="headerlink" href="#fleet-tracking-dashboard" title="Permanent link">&para;</a></h1>
+<p>A <strong>real-time delivery fleet tracking dashboard</strong>.  Integrate GPS tracking for a client’s 30 trucks and visualize their live locations on a web-based map. </p>
+<hr />
+<h2 id="overview-of-the-solution">✅ <strong>Overview of the Solution</strong><a class="headerlink" href="#overview-of-the-solution" title="Permanent link">&para;</a></h2>
+<h3 id="truck-location-data-source"><strong>Truck Location Data Source</strong><a class="headerlink" href="#truck-location-data-source" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>GPS Devices or Mobile Apps</strong> in each truck send live coordinates.</li>
+<li>Backend receives truck data:</li>
+</ul>
+<p><code>json
+  {
+    "truck_id": "TRK12",
+    "latitude": 40.7128,
+    "longitude": -74.0060,
+    "speed": 42,
+    "last_updated": "2025-06-09T06:30:00Z"
+  }</code></p>
+<h3 id="tech-stack"><strong>Tech Stack</strong><a class="headerlink" href="#tech-stack" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frontend Map</td>
+<td>Streamlit + Leaflet or React + Mapbox/Google Maps</td>
+</tr>
+<tr>
+<td>Backend API</td>
+<td>FastAPI or Flask</td>
+</tr>
+<tr>
+<td>Real-time Feed</td>
+<td>WebSocket (Socket.IO / FastAPI WebSockets)</td>
+</tr>
+<tr>
+<td>Data Storage</td>
+<td>Redis (temporary live cache) or PostgreSQL (for history)</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Streamlit Cloud / Docker on VPS / AWS EC2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="features-of-the-dashboard">🚛 <strong>Features of the Dashboard</strong><a class="headerlink" href="#features-of-the-dashboard" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Map View</strong>: Live location of 30 trucks with clustering or custom icons.</li>
+<li>
+<p><strong>Truck Details Panel</strong>:</p>
+</li>
+<li>
+<p>ID, speed, last ping</p>
+</li>
+<li>Route info, destination, ETA (if available)</li>
+<li>
+<p><strong>Search &amp; Filter</strong>:</p>
+</li>
+<li>
+<p>By Truck ID, region, or speed threshold</p>
+</li>
+<li>
+<p><strong>Alerts</strong>:</p>
+</li>
+<li>
+<p>If stopped &gt;X minutes or outside geofence</p>
+</li>
+<li>
+<p><strong>Auto Refresh</strong>:</p>
+</li>
+<li>
+<p>Every 10–30 seconds or use live push (WebSocket)</p>
+</li>
+</ol>
+<hr />
+<h3 id="minimal-working-example-prototype-with-fake-data">🧱 Minimal Working Example (Prototype with Fake Data)<a class="headerlink" href="#minimal-working-example-prototype-with-fake-data" title="Permanent link">&para;</a></h3>
+<h4 id="apppy-streamlit-with-random-simulated-truck-locations"><code>app.py</code> (Streamlit with random simulated truck locations)<a class="headerlink" href="#apppy-streamlit-with-random-simulated-truck-locations" title="Permanent link">&para;</a></h4>
+<pre><code class="language-python">import streamlit as st
+import pandas as pd
+import pydeck as pdk
+import random
+import time
+
+# Simulate 30 trucks
+def get_fake_truck_data():
+    trucks = []
+    base_lat, base_lng = 40.75, -73.98  # NYC-ish
+    for i in range(30):
+        trucks.append({
+            &quot;truck_id&quot;: f&quot;TRK{i+1:02}&quot;,
+            &quot;lat&quot;: base_lat + random.uniform(-0.3, 0.3),
+            &quot;lon&quot;: base_lng + random.uniform(-0.3, 0.3),
+            &quot;speed&quot;: random.randint(0, 70)
+        })
+    return pd.DataFrame(trucks)
+
+st.title(&quot;🚚 Real-Time Fleet Tracking Dashboard&quot;)
+
+df = get_fake_truck_data()
+layer = pdk.Layer(
+    &quot;ScatterplotLayer&quot;,
+    data=df,
+    get_position='[lon, lat]',
+    get_color='[200, 30, 0, 160]',
+    get_radius=200,
+    pickable=True
+)
+
+st.pydeck_chart(pdk.Deck(
+    map_style='mapbox://styles/mapbox/light-v9',
+    initial_view_state=pdk.ViewState(latitude=40.75, longitude=-73.98, zoom=9),
+    layers=[layer],
+    tooltip={&quot;text&quot;: &quot;Truck: {truck_id}\nSpeed: {speed} mph&quot;}
+))
+
+st.dataframe(df)
+
+# Optional: Auto-refresh
+st.button(&quot;🔄 Refresh&quot;)
+</code></pre>
+<hr />
+<h3 id="next-steps-for-production-version">🔧 Next Steps for Production Version<a class="headerlink" href="#next-steps-for-production-version" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><strong>Get Live GPS Feed</strong>:</p>
+</li>
+<li>
+<p>Use cellular GPS trackers or mobile phones sending POST requests.</p>
+</li>
+<li>
+<p>Endpoint: <code>/update_location</code> → updates Redis or DB.</p>
+</li>
+<li>
+<p><strong>Backend API</strong> (FastAPI):</p>
+</li>
+<li>
+<p><code>POST /api/track</code> → update location</p>
+</li>
+<li>
+<p><code>GET /api/trucks</code> → return all locations (for frontend)</p>
+</li>
+<li>
+<p><strong>Secure the System</strong>:</p>
+</li>
+<li>
+<p>Authentication for truck clients</p>
+</li>
+<li>
+<p>Dashboard login for internal use</p>
+</li>
+<li>
+<p><strong>Logging &amp; Analytics</strong>:</p>
+</li>
+<li>
+<p>Historical routes</p>
+</li>
+<li>Stop durations</li>
+<li>Delivery time patterns</li>
+</ol>
+<hr />
+<h3 id="optional-enhancements">📦 Optional Enhancements<a class="headerlink" href="#optional-enhancements" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Route Polylines</td>
+<td>Show full delivery path on the map</td>
+</tr>
+<tr>
+<td>ETA Calculations</td>
+<td>Use Google Maps Distance Matrix API</td>
+</tr>
+<tr>
+<td>Speeding Alerts</td>
+<td>Red marker if &gt; speed limit</td>
+</tr>
+<tr>
+<td>Delivery Status</td>
+<td>Mark if "On route", "Delivered", etc.</td>
+</tr>
+<tr>
+<td>Geofencing</td>
+<td>Alert if trucks enter/exit zones</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Would you like me to:</p>
+<ol>
+<li>Help <strong>build the backend GPS tracking API</strong>?</li>
+<li>Extend the Streamlit frontend for <strong>live updates from a backend DB or API</strong>?</li>
+<li>Simulate a <strong>full stack app</strong> with PostgreSQL and FastAPI?</li>
+</ol>
+<p>Let me know which direction you’d like to proceed next.</p>
+<h3 id="gps-tracking-devices">GPS Tracking Devices<a class="headerlink" href="#gps-tracking-devices" title="Permanent link">&para;</a></h3>
+<p>Here are <strong>recommended GPS tracking devices</strong> for installing in your fleet of 30 trucks, ranging from plug-and-play models to hardwired commercial-grade units. These are reliable, support real-time tracking, and integrate well with custom dashboards or APIs.</p>
+<hr />
+<h2 id="recommended-gps-trackers-for-fleet-trucks">✅ <strong>Recommended GPS Trackers for Fleet Trucks</strong><a class="headerlink" href="#recommended-gps-trackers-for-fleet-trucks" title="Permanent link">&para;</a></h2>
+<h3 id="1-bouncie-gps-tracker">1. <strong>Bouncie GPS Tracker</strong><a class="headerlink" href="#1-bouncie-gps-tracker" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Type</strong>: OBD-II plug-in</li>
+<li><strong>Best for</strong>: Easy installation on newer vehicles (2010+)</li>
+<li>
+<p><strong>Features</strong>:</p>
+</li>
+<li>
+<p>Real-time tracking (via LTE)</p>
+</li>
+<li>Trip history, speed alerts</li>
+<li>API access (via their developer portal)</li>
+<li><strong>Monthly Fee</strong>: \~\$8/month</li>
+<li><strong>Website</strong>: <a href="https://www.bouncie.com">https://www.bouncie.com</a></li>
+</ul>
+<hr />
+<h3 id="2-vyncs-gps-tracker">2. <strong>Vyncs GPS Tracker</strong><a class="headerlink" href="#2-vyncs-gps-tracker" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Type</strong>: OBD-II or Wired</li>
+<li><strong>Best for</strong>: Long-term, no monthly fee (1-year plan)</li>
+<li>
+<p><strong>Features</strong>:</p>
+</li>
+<li>
+<p>Real-time GPS and diagnostics</p>
+</li>
+<li>Works worldwide (via 3G/4G)</li>
+<li>Data API access (VyncsFleet)</li>
+<li><strong>Cost</strong>: \~\$80/year (no monthly fee)</li>
+<li><strong>Website</strong>: <a href="https://vyncs.com">https://vyncs.com</a></li>
+</ul>
+<hr />
+<h3 id="3-tracki-gps-tracker">3. <strong>Tracki GPS Tracker</strong><a class="headerlink" href="#3-tracki-gps-tracker" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Type</strong>: Portable with magnet or hardwired</li>
+<li><strong>Best for</strong>: Discreet placement or hybrid power</li>
+<li>
+<p><strong>Features</strong>:</p>
+</li>
+<li>
+<p>Works indoor/outdoor</p>
+</li>
+<li>4G LTE + Wi-Fi fallback</li>
+<li>API &amp; Webhooks supported</li>
+<li><strong>Monthly Fee</strong>: \~\$10/month</li>
+<li><strong>Website</strong>: <a href="https://www.tracki.com">https://www.tracki.com</a></li>
+</ul>
+<hr />
+<h3 id="4-samsara-vehicle-gateway-vg34">4. <strong>Samsara Vehicle Gateway (VG34)</strong><a class="headerlink" href="#4-samsara-vehicle-gateway-vg34" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Type</strong>: Enterprise-grade hardwired</li>
+<li><strong>Best for</strong>: Large fleets, compliance (ELD, maintenance)</li>
+<li>
+<p><strong>Features</strong>:</p>
+</li>
+<li>
+<p>Real-time GPS, engine diagnostics, driver behavior</p>
+</li>
+<li>Open API and Webhooks</li>
+<li>Integrated dash cams optional</li>
+<li><strong>Monthly Fee</strong>: \~\$25+/vehicle (SaaS model)</li>
+<li><strong>Website</strong>: <a href="https://www.samsara.com/fleet/">https://www.samsara.com/fleet/</a></li>
+</ul>
+<hr />
+<h3 id="5-calamp-lmu-3030-lmu-2630">5. <strong>CalAmp LMU-3030 / LMU-2630</strong><a class="headerlink" href="#5-calamp-lmu-3030-lmu-2630" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Type</strong>: OBD-II or hardwired</li>
+<li><strong>Best for</strong>: Industrial-grade tracking with full telematics</li>
+<li>
+<p><strong>Features</strong>:</p>
+</li>
+<li>
+<p>GPS + cellular connectivity</p>
+</li>
+<li>Supports geofencing, real-time location, harsh braking alerts</li>
+<li>API integration (FleetOutlook or custom)</li>
+<li><strong>Monthly Fee</strong>: Varies by reseller (typically \$15–\$25/month)</li>
+<li><strong>Website</strong>: <a href="https://www.calamp.com">https://www.calamp.com</a></li>
+</ul>
+<hr />
+<h3 id="installation-options">Installation Options<a class="headerlink" href="#installation-options" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Install Time</th>
+<th>Best For</th>
+<th>Power Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>OBD-II</strong></td>
+<td>&lt;5 mins</td>
+<td>Most trucks (2010+)</td>
+<td>Vehicle’s port</td>
+</tr>
+<tr>
+<td><strong>Hardwired</strong></td>
+<td>30–45 mins</td>
+<td>All vehicle types</td>
+<td>Direct to battery</td>
+</tr>
+<tr>
+<td><strong>Battery-only</strong></td>
+<td>Portable</td>
+<td>Temporary tracking</td>
+<td>Rechargeable (1-2 wks)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="integration-tip-api-access">🔐 Integration Tip: API Access<a class="headerlink" href="#integration-tip-api-access" title="Permanent link">&para;</a></h3>
+<p>the GPS feed the <strong>custom dashboard</strong>:</p>
+<ul>
+<li>Choose a provider that supports <strong>API access</strong></li>
+<li>Look for RESTful endpoints or <strong>WebSocket support</strong></li>
+<li>Confirm whether you get access to <strong>raw GPS coordinates</strong> and vehicle telemetry</li>
+</ul>
+<hr />
+<h2 id="build-your-own-tracker-or-outsource-this-build">🛠️ Build your own tracker or outsource this build.<a class="headerlink" href="#build-your-own-tracker-or-outsource-this-build" title="Permanent link">&para;</a></h2>
+<p>If you're open to DIY:</p>
+<ul>
+<li>Use a <strong>Raspberry Pi + GPS HAT + LTE module</strong> or <strong>ESP32 with GPS module</strong></li>
+<li>Send <code>lat/lon/speed/truck_id</code> via HTTPS POST or MQTT to your server</li>
+<li>Pros: Fully custom, no subscription</li>
+<li>Cons: More dev time, hardware integration effort</li>
+</ul>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../services/freelance/" class="btn btn-neutral float-right" title="Freelance">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../services/freelance/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

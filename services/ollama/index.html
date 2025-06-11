@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://blutterfly.github.io/mk_consulting/services/ollama/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Setup Deploy OLLAMA - Mk Consulting</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Setup Deploy OLLAMA";
+        var mkdocs_page_input_path = "services/ollama.md";
+        var mkdocs_page_url = "/mk_consulting/services/ollama/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Mk Consulting
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../about.md">About</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Apps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../apps/fleet_tracking/">Fleet Tracking</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Services</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../freelance/">Freelance</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../llm/">Large Language Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../clinical_note/">Clinical Note Summarization</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Setup Deploy OLLAMA</a>
+    <ul class="current">
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Goochlot</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../goochlot/page1.md">Page 1</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../goochlot/page2.md">Page 2</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/setup/">Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/advanced.md">Advanced Tips</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Mk Consulting</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Services</li>
+      <li class="breadcrumb-item active">Setup Deploy OLLAMA</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>Below is a <strong>reference build-sheet</strong> for turning <strong>Ollama</strong> into a local “chat-with-my-PDFs” engine. It’s written for a data-scientist audience, so the legalese is stripped and the ML plumbing is explicit.</p>
+<hr />
+<h2 id="1-set-up-ollama-models">1.  Set up Ollama + models<a class="headerlink" href="#1-set-up-ollama-models" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash"># macOS / Linux / WSL
+curl -fsSL https://ollama.com/install.sh | sh      # installs daemon &amp; CLI
+ollama pull mistral:instruct                       # chat model (≈7 B)
+ollama pull nomic-embed-text                       # fast 768-dim embed model
+</code></pre>
+<p>Ollama exposes both a <strong>chat</strong> endpoint (<code>POST /api/generate</code>) and an <strong>embeddings</strong> endpoint (<code>POST /api/embeddings</code>). The latter lets you stay entirely local for vector search. (<a href="https://ollama.com/blog/embedding-models?utm_source=chatgpt.com" title="Embedding models · Ollama Blog">ollama.com</a>)</p>
+<hr />
+<h2 id="2-python-environment">2.  Python environment<a class="headerlink" href="#2-python-environment" title="Permanent link">&para;</a></h2>
+<pre><code class="language-bash">pip install langchain-community langchain-ollama \
+           chromadb pypdf pymupdf tqdm python-dotenv
+</code></pre>
+<p><code>langchain-ollama</code> wraps both endpoints so you don’t have to hand-code REST. (<a href="https://python.langchain.com/docs/integrations/text_embedding/ollama/?utm_source=chatgpt.com" title="OllamaEmbeddings - ️ LangChain">python.langchain.com</a>)</p>
+<hr />
+<h2 id="3-ingest-chunk-the-pdfs">3.  Ingest &amp; chunk the PDFs<a class="headerlink" href="#3-ingest-chunk-the-pdfs" title="Permanent link">&para;</a></h2>
+<pre><code class="language-python">from langchain_community.document_loaders import PyPDFLoader
+from langchain.text_splitter           import RecursiveCharacterTextSplitter
+
+loader   = PyPDFLoader(&quot;path/to/bulk/folder&quot;)      # walks sub-dirs
+docs_raw = loader.load()                           # 1 doc per page
+
+splitter = RecursiveCharacterTextSplitter(
+              chunk_size=1000, chunk_overlap=150)
+docs     = splitter.split_documents(docs_raw)      # ~750-word chunks
+</code></pre>
+<p><em>Why 1 000 chars + 150 overlap?</em>  It keeps most semantic units intact while fitting under common 2 k-token context limits.</p>
+<hr />
+<h2 id="4-embed-store">4.  Embed &amp; store<a class="headerlink" href="#4-embed-store" title="Permanent link">&para;</a></h2>
+<pre><code class="language-python">from langchain_community.vectorstores import Chroma
+from langchain_ollama.embeddings      import OllamaEmbeddings
+
+embedder = OllamaEmbeddings(model=&quot;nomic-embed-text&quot;)   # 1 GPU or CPU
+vectordb = Chroma(collection_name=&quot;pdf-library&quot;,
+                   embedding_function=embedder,
+                   persist_directory=&quot;./chroma&quot;)
+
+vectordb.add_documents(docs)            # streamed; use tqdm for progress
+vectordb.persist()
+</code></pre>
+<p><em>Scale tip:</em>  On a modern desktop CPU, <code>nomic-embed-text</code> runs \~60 chunks/s; eight-core boxes embed a 10k-page corpus in &lt;30 minutes. For millions of pages, shard across machines or pre-quantise embeddings (faiss-IVF, ANN). (<a href="https://github.com/tonykipkemboi/ollama_pdf_rag?utm_source=chatgpt.com" title="tonykipkemboi/ollama_pdf_rag: A demo Jupyter Notebook ... - GitHub">github.com</a>)</p>
+<hr />
+<h2 id="5-retrieval-augmented-generation-rag-loop">5.  Retrieval-Augmented Generation (RAG) loop<a class="headerlink" href="#5-retrieval-augmented-generation-rag-loop" title="Permanent link">&para;</a></h2>
+<pre><code class="language-python">from langchain.chains            import RetrievalQA
+from langchain_ollama.chat_models import ChatOllama
+
+retriever = vectordb.as_retriever(search_kwargs={&quot;k&quot;: 6})
+
+llm = ChatOllama(model=&quot;mistral:instruct&quot;,
+                 temperature=0.2,  # factual style
+                 system=&quot;You are a helpful analyst. &quot;
+                        &quot;Use the references verbatim; no hallucinations.&quot;)
+
+qa_chain = RetrievalQA.from_chain_type(
+              llm            = llm,
+              chain_type     = &quot;stuff&quot;,     # simple concat; swap for refine/map-reduce if &gt;16k ctx
+              retriever      = retriever,
+              return_source_documents=True)
+
+query   = &quot;List every Phase-III trial mentioned in the oncology PDFs.&quot;
+result  = qa_chain(query)
+print(result[&quot;result&quot;])
+</code></pre>
+<p>RAG glues together:</p>
+<ol>
+<li><strong>Embed query → vector search</strong></li>
+<li><strong>Stuff top-k chunks into the prompt</strong></li>
+<li><strong>Generate answer with citations</strong></li>
+</ol>
+<p>Medium-latency today (&lt;2 s on CPU, \~300 ms on GPU). (<a href="https://medium.com/%40diwakarkumar_18755/rag-using-ollama-a577e67f22de?utm_source=chatgpt.com" title="RAG using Ollama - by Diwakar Kumar - Medium">medium.com</a>)</p>
+<hr />
+<h2 id="6-putting-it-behind-an-api">6.  Putting it behind an API<a class="headerlink" href="#6-putting-it-behind-an-api" title="Permanent link">&para;</a></h2>
+<p>Simple FastAPI wrapper:</p>
+<pre><code class="language-python">from fastapi import FastAPI
+app = FastAPI()
+
+@app.post(&quot;/ask&quot;)
+def ask(q: str):
+    response = qa_chain(q)
+    return {&quot;answer&quot;: response[&quot;result&quot;],
+            &quot;citations&quot;: [s.metadata for s in response[&quot;source_documents&quot;]]}
+</code></pre>
+<p>Deploy with Uvicorn or Docker; Ollama already runs as a local service reachable from the container.</p>
+<hr />
+<h2 id="7-incremental-updates-scale-patterns">7.  Incremental updates &amp; scale patterns<a class="headerlink" href="#7-incremental-updates-scale-patterns" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Challenge</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>New PDFs daily</strong></td>
+<td>Watch-folder daemon → extract--&gt; embed--&gt; upsert in Chroma</td>
+</tr>
+<tr>
+<td><strong>&gt;10 M chunks</strong></td>
+<td>Move to disk-based FAISS or Qdrant; store embeddings in HNSW index and raw text in S3/Postgres</td>
+</tr>
+<tr>
+<td><strong>Concurrent users</strong></td>
+<td>Run Ollama’s model in <strong>vLLM</strong> or <strong>llama.cpp server</strong> behind Envoy; share one embedding model instance per node</td>
+</tr>
+<tr>
+<td><strong>GPU scarcity</strong></td>
+<td>4-bit Q-LoRA quantised chat model; embed on CPU (fast)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-guardrails-ux-extras">8.  Guardrails &amp; UX extras<a class="headerlink" href="#8-guardrails-ux-extras" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Chunk metadata</strong> – add <code>pdf_title</code>, <code>page</code>, <code>section</code> to each <code>Document</code>; makes citation links clickable.</li>
+<li><strong>Re-ranking</strong> – after vector search, feed (query, chunk) pairs to a cross-encoder (e.g., <code>bge-reranker-base</code>) for higher precision.</li>
+<li><strong>File-level permissions</strong> – filter retriever results by user ACL before they hit the prompt.</li>
+<li><strong>Eval harness</strong> – store a set of (question, expected answer, must-include reference) and run nightly regression with LangSmith or pytest.</li>
+</ul>
+<hr />
+<h3 id="tldr">TL;DR<a class="headerlink" href="#tldr" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Ollama = local OpenAI-style API</strong> → choose one chat model + one embed model.</li>
+<li><strong>Extract PDFs → chunk → embed → vector DB.</strong></li>
+<li><strong>RAG loop</strong>: similarity search, then prompt the chat model with retrieved text.</li>
+<li><strong>Scale</strong> by sharding embeddings and serving the LLM behind a lightweight API.</li>
+</ol>
+<p>Follow these steps and you have a fully local, searchable PDF knowledge base—no cloud costs, full data control, and latency that feels interactive.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../clinical_note/" class="btn btn-neutral float-left" title="Clinical Note Summarization"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../guides/setup/" class="btn btn-neutral float-right" title="Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../clinical_note/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../guides/setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
